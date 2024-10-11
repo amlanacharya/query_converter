@@ -6,7 +6,7 @@ import json
 # Streamlit UI
 st.title("Query Converter")
 st.write("Enter an organisational query:")
-query = st.text_input("Enter your natural language query:")
+query = st.text_input("Type your query here...")
 
 #session
 if 'cypher_query' not in st.session_state:
