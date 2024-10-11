@@ -6,12 +6,12 @@ fake = Faker('en_IN')
 
 def generate_employee_data(num_employees):
     employees = []
-    dept_ids = [random.randint(100, 999) for _ in range(5)]  # Limiting to 5 departments
+    dept_ids = [random.randint(100, 999) for _ in range(5)]  # 5 departments
 
     for i in range(num_employees):
         emp_id = i + 1000
         emp_name = fake.name()
-        supervisor_id = random.choice(range(1000, emp_id)) if i > 0 else None  # Supervisor from previous employees
+        supervisor_id = random.choice(range(1000, emp_id)) if i > 0 else None  #supervisor
         dept_id = random.choice(dept_ids)
         employees.append((emp_id, emp_name, supervisor_id, dept_id))
 
@@ -24,7 +24,7 @@ def write_to_csv(employees, filename):
         writer.writerows(employees)
 
 if __name__ == "__main__":
-    random.seed(42)  # Set seed for reproducibility
+    random.seed(42)  # Set any number of your choice.
     num_employees = 1000
     employees = generate_employee_data(num_employees)
     write_to_csv(employees, "employee_data.csv")
